@@ -1,6 +1,6 @@
 class Api::V1::StockCardsController < ApplicationController
 
-  before_action :find_stock_card, only: [:update]
+  before_action :find_stock_card, only: [:update, :show]
 
   def index
     @stock_cards = StockCard.all
@@ -23,6 +23,10 @@ class Api::V1::StockCardsController < ApplicationController
     else
       render json: {errors: @stock_card.errors.full_messages}, status: :unprocessible_entity
     end
+  end
+
+  def show
+    render json: @stock_card, status: :accepted
   end
 
   private

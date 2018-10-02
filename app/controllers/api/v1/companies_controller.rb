@@ -1,5 +1,5 @@
 class Api::V1::CompaniesController < ApplicationController
-  before_action :find_company, only: [:update]
+  before_action :find_company, only: [:update, :show]
 
   def index
     @companies = Company.all
@@ -22,6 +22,10 @@ class Api::V1::CompaniesController < ApplicationController
     else
       render json: {errors: @company.errors.full_messages}, status: :unprocessible_entity
     end
+  end
+
+  def show
+    render json: @company, status: :accepted
   end
 
   private

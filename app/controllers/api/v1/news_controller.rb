@@ -1,5 +1,5 @@
 class Api::V1::NewsController < ApplicationController
-  before_action :find_news, only: [:update]
+  before_action :find_news, only: [:update, :show]
 
   def index
     @news = News.all
@@ -24,6 +24,9 @@ class Api::V1::NewsController < ApplicationController
     end
   end
 
+  def show
+    render json: @news, status: :accepted
+  end
   private
 
   def news_params
