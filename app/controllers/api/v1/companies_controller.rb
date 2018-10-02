@@ -16,7 +16,7 @@ class Api::V1::CompaniesController < ApplicationController
   end
 
   def create
-    @company = new Company(company_params)
+    @company = Company.new(company_params)
     if @company.save
       render json: @company, status: :accepted
     else
@@ -27,7 +27,7 @@ class Api::V1::CompaniesController < ApplicationController
   private
 
   def company_params
-    params.permit(:description, :name, :price)
+    params.require(:company).permit(:description, :name, :symbol, :price, :news, :high, :low, :open_price, :close_price)
   end
 
   def find_company

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_01_182133) do
+ActiveRecord::Schema.define(version: 2018_10_01_213047) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,18 @@ ActiveRecord::Schema.define(version: 2018_10_01_182133) do
     t.string "description"
     t.float "price"
     t.string "name"
+    t.string "symbol"
+    t.float "high"
+    t.float "low"
+    t.float "open_price"
+    t.float "close_price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "news", force: :cascade do |t|
+    t.string "description"
+    t.integer "company_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -26,6 +38,9 @@ ActiveRecord::Schema.define(version: 2018_10_01_182133) do
   create_table "stock_cards", force: :cascade do |t|
     t.integer "user_id"
     t.integer "company_id"
+    t.float "quantity"
+    t.float "buy_price"
+    t.float "sell_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

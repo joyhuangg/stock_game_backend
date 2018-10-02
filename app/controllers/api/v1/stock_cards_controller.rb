@@ -17,7 +17,7 @@ class Api::V1::StockCardsController < ApplicationController
   end
 
   def create
-    @stock_card = new StockCard(stock_card_params)
+    @stock_card = StockCard.new(stock_card_params)
     if @stock_card.save
       render json: @stock_card, status: :accepted
     else
@@ -28,7 +28,7 @@ class Api::V1::StockCardsController < ApplicationController
   private
 
   def stock_card_params
-    params.permit(:user_id, :company_id)
+    params.permit(:user_id, :company_id, :quantity, :buy_price, :sell_price)
   end
 
   def find_stock_card
