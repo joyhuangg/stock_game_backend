@@ -27,8 +27,9 @@ class Api::V1::NewsController < ApplicationController
   private
 
   def news_params
-    params.permit(:description)
+    params.permit(:headline, :url, :source, :summary, :image, :related, :datetime)
   end
+
 
   def find_news
     @news = News.find(params[:id])

@@ -4,3 +4,6 @@
 require_relative 'config/application'
 
 Rails.application.load_tasks
+
+#make loader class, ex. Load.fetch_stock
+#in load class, define fetch_stock method
