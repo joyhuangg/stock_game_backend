@@ -49,7 +49,6 @@ ActiveRecord::Schema.define(version: 2018_10_02_143351) do
   create_table "stock_cards", force: :cascade do |t|
     t.integer "user_id"
     t.integer "company_id"
-    t.float "quantity"
     t.float "buy_price"
     t.float "sell_price"
     t.datetime "created_at", null: false

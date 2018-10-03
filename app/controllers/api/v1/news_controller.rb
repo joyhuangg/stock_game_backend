@@ -1,5 +1,5 @@
 class Api::V1::NewsController < ApplicationController
-  before_action :find_news, only: [:update, :show]
+  before_action :find_news, only: [:update, :show, :destroy]
 
   def index
     @news = News.all
@@ -26,6 +26,10 @@ class Api::V1::NewsController < ApplicationController
 
   def show
     render json: @news, status: :accepted
+  end
+
+  def destroy
+    @news.destroy
   end
   private
 

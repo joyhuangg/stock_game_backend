@@ -1,6 +1,6 @@
 class Api::V1::StockCardsController < ApplicationController
 
-  before_action :find_stock_card, only: [:update, :show]
+  before_action :find_stock_card, only: [:update, :show, :destroy]
 
   def index
     @stock_cards = StockCard.all
@@ -28,11 +28,14 @@ class Api::V1::StockCardsController < ApplicationController
   def show
     render json: @stock_card, status: :accepted
   end
+  def destroy
+    @stock_card.destroy
+  end
 
   private
 
   def stock_card_params
-    params.permit(:user_id, :company_id, :quantity, :buy_price, :sell_price)
+    params.permit(:user_id, :company_id, :buy_price, :sell_price)
   end
 
   def find_stock_card

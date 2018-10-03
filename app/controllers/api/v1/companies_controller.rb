@@ -1,5 +1,5 @@
 class Api::V1::CompaniesController < ApplicationController
-  before_action :find_company, only: [:update, :show]
+  before_action :find_company, only: [:update, :show, :destroy]
 
   def index
     @companies = Company.all
@@ -28,6 +28,9 @@ class Api::V1::CompaniesController < ApplicationController
     render json: @company, status: :accepted
   end
 
+  def destroy
+    @company.destroy
+  end
   private
 
   def company_params

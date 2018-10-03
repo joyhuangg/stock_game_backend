@@ -10,7 +10,7 @@ class Load < ApplicationRecord
     response_hash = JSON.parse(response_string)
 
     # (0..100).each do |i|
-    (0..10).each do |i|
+    (0..100).each do |i|
       stock = response_hash[i]
       symbol = response_hash[i]['symbol']
       fetchedStock = JSON.parse(RestClient.get"https://api.iextrading.com/1.0/stock/#{symbol}/batch?types=quote,news,chart")
