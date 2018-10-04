@@ -7,10 +7,9 @@
 #
 # set :output, "/path/to/my/cron_log.log"
 #
-
 # whenever --update-crontab --set environment='development'
 #  :hour
-every 15.minutes do
+every :minute do
   runner "Load.fetch_100_stocks"
   # rake "some:great:rake:task"
 end

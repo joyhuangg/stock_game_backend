@@ -2,13 +2,13 @@ class CreateCompanies < ActiveRecord::Migration[5.2]
   def change
     create_table :companies do |t|
       t.string :description
-      t.float :price
+      t.decimal :price, scale:2, precision: 30
       t.string :name
       t.string :symbol
-      t.float :high
-      t.float :low
-      t.float :open_price
-      t.float :close_price
+      t.decimal :high, scale:2, precision: 30
+      t.decimal :low, scale:2, precision: 30
+      t.decimal :open_price, scale:2, precision: 30
+      t.decimal :close_price, scale:2, precision: 30
       t.timestamps
     end
   end

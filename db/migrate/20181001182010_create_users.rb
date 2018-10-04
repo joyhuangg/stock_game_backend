@@ -3,7 +3,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
     create_table :users do |t|
       t.string :name
       t.string :username
-      t.float :money
+      t.decimal :money, scale: 2, precision: 30
 
       t.timestamps
     end

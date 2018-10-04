@@ -3,6 +3,13 @@ class Api::V1::CompaniesController < ApplicationController
 
   def index
     @companies = Company.all
+    # @companies.each {|company| Load.update_stock(company.symbol)}
+    render json: @companies
+  end
+
+  def refresh_companies
+    @companies = Company.all
+    @companies.each {|company| Load.update_stock(company.symbol)}
     render json: @companies
   end
 
