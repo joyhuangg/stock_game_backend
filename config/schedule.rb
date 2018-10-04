@@ -10,10 +10,14 @@
 
 # whenever --update-crontab --set environment='development'
 #  :hour
-every 15.minutes do
-  runner "Load.fetch_100_stocks"
-  # rake "some:great:rake:task"
-end
+
+
+# every 15.minutes do
+#   runner "Load.fetch_100_stocks"
+#   # rake "some:great:rake:task"
+# end
+
+
 #
 # every 4.days do
 #   runner "AnotherModel.prune_old_records"

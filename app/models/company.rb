@@ -13,11 +13,13 @@ class Company < ApplicationRecord
       news = News.new(news)
       news.company = company
       news.save
+      company
     else
       company = Company.create(description:description, price:price, name:name, symbol:symbol, high:high, low:low, open_price:open_price, close_price:close_price)
       news = News.new(news)
       news.company = company
       news.save
+      company
     end
   end
 end

@@ -10,4 +10,4 @@ User.destroy_all
 StockCard.destroy_all
 Company.destroy_all
 user = User.create(name: "Dummy", username: "Dummy", money: 1000)
-Load.fetch_100_stocks
+# Load.fetch_100_stocks

@@ -5,18 +5,18 @@ class Load < ApplicationRecord
 
 
 # fetches first 100 stocks
-  def self.fetch_100_stocks
-    response_string = RestClient.get('https://api.iextrading.com/1.0/ref-data/symbols')
-    response_hash = JSON.parse(response_string)
-
-    # (0..100).each do |i|
-    (0..100).each do |i|
-      stock = response_hash[i]
-      symbol = response_hash[i]['symbol']
-      fetchedStock = JSON.parse(RestClient.get"https://api.iextrading.com/1.0/stock/#{symbol}/batch?types=quote,news,chart")
-      update_stock(fetchedStock)
-    end
-  end
+  # def self.fetch_100_stocks
+  #   response_string = RestClient.get('https://api.iextrading.com/1.0/ref-data/symbols')
+  #   response_hash = JSON.parse(response_string)
+  #
+  #   # (0..100).each do |i|
+  #   (0..100).each do |i|
+  #     stock = response_hash[i]
+  #     symbol = response_hash[i]['symbol']
+  #     fetchedStock = JSON.parse(RestClient.get"https://api.iextrading.com/1.0/stock/#{symbol}/batch?types=quote,news,chart")
+  #     update_stock(fetchedStock)
+  #   end
+  # end
 
 # makes a get request to a stock then updates or creates it in my backend
   def self.update_stock(stock)

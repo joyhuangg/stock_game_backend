@@ -16,8 +16,8 @@ class Api::V1::CompaniesController < ApplicationController
   end
 
   def create
-    @company = Company.new(company_params)
-    if @company.save
+    @company = Company.update_or_create_by(:description => company_params[:description],:name => company_params[:name],:symbol => company_params[:symbol],:price => company_params[:price],:news => company_params[:news],:high => company_params[:high],:low => company_params[:low],:open_price => company_params[:open_price],:close_price => company_params[:close_price])
+    if @company
       render json: @company, status: :accepted
     else
       render json: {errors: @company.errors.full_messages}, status: :unprocessible_entity
