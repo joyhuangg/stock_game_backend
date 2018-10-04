@@ -7,17 +7,12 @@
 #
 # set :output, "/path/to/my/cron_log.log"
 #
-
 # whenever --update-crontab --set environment='development'
 #  :hour
-
-
-# every 15.minutes do
-#   runner "Load.fetch_100_stocks"
-#   # rake "some:great:rake:task"
-# end
-
-
+every :minute do
+  runner "Load.fetch_100_stocks"
+  # rake "some:great:rake:task"
+end
 #
 # every 4.days do
 #   runner "AnotherModel.prune_old_records"

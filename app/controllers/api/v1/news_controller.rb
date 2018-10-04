@@ -18,7 +18,7 @@ class Api::V1::NewsController < ApplicationController
   def create
     @news = News.new(news_params)
     if @news.save
-      render json: @news, status: :accepted
+      render json: @news.company, status: :accepted
     else
       render json: {errors: @news.errors.full_messages}, status: :unprocessible_entity
     end
@@ -34,7 +34,7 @@ class Api::V1::NewsController < ApplicationController
   private
 
   def news_params
-    params.permit(:headline, :url, :source, :summary, :image, :related, :datetime)
+    params.require(:news).permit(:headline, :url, :source, :summary, :image, :related, :datetime,  :company_id)
   end
 
 

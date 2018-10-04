@@ -5,6 +5,8 @@ Rails.application.routes.draw do
       resources :companies, only: [:index, :update, :create, :show, :destroy]
       resources :users, only: [:index, :update, :create, :show, :destroy]
       resources :stock_cards, only: [:index, :update, :create, :show,:destroy]
+      get "/refresh_companies", to: "companies#refresh_companies"
+      resources :news, only: [:create]
     end
   end
 end

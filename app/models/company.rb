@@ -9,16 +9,10 @@ class Company < ApplicationRecord
   def self.update_or_create_by(description:, price:, name:, symbol:, high:, low:, open_price:, close_price:, news:)
     if Company.find_by(symbol:symbol)
       company = Company.find_by(symbol:symbol)
-      company.update(price:price, high:high, low:low, open_price:open_price, close_price:close_price)
-      news = News.new(news)
-      news.company = company
-      news.save
+      company.update(price:price, high:high, low:low, open_price:open_price, close_price:close_price, updated_at: DateTime.now)
       company
     else
       company = Company.create(description:description, price:price, name:name, symbol:symbol, high:high, low:low, open_price:open_price, close_price:close_price)
-      news = News.new(news)
-      news.company = company
-      news.save
       company
     end
   end

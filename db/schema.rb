@@ -17,13 +17,13 @@ ActiveRecord::Schema.define(version: 2018_10_02_143351) do
 
   create_table "companies", force: :cascade do |t|
     t.string "description"
-    t.float "price"
+    t.decimal "price", precision: 30, scale: 2
     t.string "name"
     t.string "symbol"
-    t.float "high"
-    t.float "low"
-    t.float "open_price"
-    t.float "close_price"
+    t.decimal "high", precision: 30, scale: 2
+    t.decimal "low", precision: 30, scale: 2
+    t.decimal "open_price", precision: 30, scale: 2
+    t.decimal "close_price", precision: 30, scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -49,8 +49,8 @@ ActiveRecord::Schema.define(version: 2018_10_02_143351) do
   create_table "stock_cards", force: :cascade do |t|
     t.integer "user_id"
     t.integer "company_id"
-    t.float "buy_price"
-    t.float "sell_price"
+    t.decimal "buy_price", precision: 30, scale: 2
+    t.decimal "sell_price", precision: 30
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 2018_10_02_143351) do
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "username"
-    t.float "money"
+    t.decimal "money", precision: 30, scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
