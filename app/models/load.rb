@@ -27,4 +27,9 @@ class Load < ApplicationRecord
     massa = {company_id:company.id}.merge(stock['news'][0])
     News.find_or_create_by(massa)
   end
+
+  def self.update_stock2(symbol)
+    stock = JSON.parse(RestClient.get"https://api.iextrading.com/1.0/stock/#{symbol}/batch?types=quote,news,chart")
+    company = Company.update_or_create_by(description: stock['quote']['sector'], price: stock['quote']['latestPrice'], name: stock['quote']['companyName'], symbol: stock['quote']['symbol'], high: stock['quote']['high'], low: stock['quote']['low'], open_price: stock['quote']['open'], close_price: stock['quote']['close'], news: stock['news'][0])
+  end
 end

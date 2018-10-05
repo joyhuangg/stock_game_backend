@@ -34,7 +34,9 @@ class Api::V1::NewsController < ApplicationController
   private
 
   def news_params
-    params.require(:news).permit(:headline, :url, :source, :summary, :image, :related, :datetime,  :company_id)
+    # params.require(:news).permit(:headline, :url, :source, :summary, :image, :related, :datetime,  :company_id)
+    params.require(:news).permit(:headline, :url, :source, :summary, :image, :related, :datetime)
+
   end
 
 

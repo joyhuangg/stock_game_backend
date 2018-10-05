@@ -9,7 +9,8 @@ class Api::V1::CompaniesController < ApplicationController
 
   def refresh_companies
     @companies = Company.all
-    @companies.each {|company| Load.update_stock(company.symbol)}
+    @companies.each {|company| Load.update_stock2(company.symbol)}
+    # byebug
     render json: @companies
   end
 
