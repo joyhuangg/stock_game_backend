@@ -1,6 +1,6 @@
 class UserSerializer < ActiveModel::Serializer
   attributes :id, :name, :username, :money, :cards
-  has_many :companies, through: :stock_cards
+  # has_many :companies, through: :stock_cards
   has_many :stock_cards
 
 
