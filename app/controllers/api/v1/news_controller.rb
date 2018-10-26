@@ -16,7 +16,7 @@ class Api::V1::NewsController < ApplicationController
   end
 
   def create
-    @news = News.new(news_params)
+    @news = News.new(news_params) 
     if @news.save
       render json: @news.company, status: :accepted
     else
